@@ -6,26 +6,51 @@ const PORT = 3000;
 require("dotenv").config();
 
 //add model variable
+// const todotask = require("./models/todotask");
 const TodoTask = require("./models/todoTask");
 
 //Set middleware
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
-// let db;
-mongoose.connect(process.env.DB_STRING, { userNewUrlParser: true }, () => {
-  console.log("Connected to db!");
-  // db = client.db(Todos);
-});
+// app.use(express.json());
+
+mongoose.connect(
+  process.env.DB_STRING,
+  {
+    useNewUrlParser: true,
+  },
+  (err) => {
+    if (err) return console.log("Error: ", err);
+    console.log(
+      "MongoDB Connection -- Ready state is:",
+      mongoose.connection.readyState
+    );
+  }
+);
 
 app.get("/", async (req, res) => {
   try {
     TodoTask.find({}, (err, tasks) => {
-      console.log(tasks);
       res.render("index.ejs", { todoTasks: tasks });
     });
   } catch (err) {
     if (err) return res.status(500).send(err);
+  }
+});
+
+app.post("/", async (req, res) => {
+  const todoTask = new TodoTask({
+    title: req.body.title,
+    content: req.body.content,
+  });
+  try {
+    await todoTask.save();
+    console.log(todoTask);
+    res.redirect("/");
+  } catch {
+    if (err) return res.status(500).send(err);
+    res.redirect("/");
   }
 });
 

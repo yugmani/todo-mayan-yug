@@ -5,20 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/style.css" />
-    <!--no need to set ../public , because it is already set-->
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@100&family=Ubuntu:wght@300;500&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <script
       src="https://kit.fontawesome.com/ca33be108d.js"
       crossorigin="anonymous"
     ></script>
+
+    <link rel="stylesheet" href="/style.css" />
+    <!--no need to set ../public , because it is already set-->
   </head>
   <body>
     <section class="todo-container">
-      <h2>To Do List</h2>
+      <h1>To Do List</h1>
+      <section class="todo">
+        <form method="POST" action="/" class="'todo-header">
+          <input type="text" name="title" placeholder="title" />
+          <textarea
+            rows="6"
+            cols="45"
+            name="content"
+            placeholder="content"
+          ></textarea>
+          <button type="submit">
+            <span class="fas fa-plus">Add Task</span>
+          </button>
+        </form>
+      </section>
     </section>
   </body>
 </html>
