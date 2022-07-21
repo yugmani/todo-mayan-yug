@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@100&family=Ubuntu:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script
+      src="https://kit.fontawesome.com/ca33be108d.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="/style.css" />
+    <!--no need to set ../public , because it is already set-->
+  </head>
+  <body>
+    <section class="todo-container">
+      <h1>Edit List Item</h1>
+      <section class="todo">
+        <ul class="todo-list">
+          <% todoTasks.forEach(item=> {%> <% if(item._id == idTask){ %>
+          <li class="todo-list-item">
+            <form action="/edit/<%= item._id %>" method="POST">
+              <input type="text" name="title" value="<%= item.title %>" />
+              <textarea rows="6" cols="45" name="content">
+                <%= item.content %>
+                </textarea
+              >
+              <button type="submit" class="confirm">Confirm</button>
+              <a href="/" class="cancel">Cancel</a>
+            </form>
+          </li>
+          <%} else { %>
+          <li class="todo-list-item">
+            <div class="todo-list-item-title"><%= item.title %></div>
+            <div class="todo-list-item-content"><%= item.content %></div>
+            <a href="/edit/<%= item._id %>" class="edit"
+              ><span class="fas fa-edit"></span
+            ></a>
+            <a href="/remove/<%= item._id %>" class="remove"
+              ><span class="fas fa-times"></span
+            ></a>
+          </li>
+          <% } %> <% }) %>
+        </ul>
+      </section>
+    </section>
+  </body>
+</html>

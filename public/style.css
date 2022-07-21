@@ -1,5 +1,66 @@
 * {
-  font-family: "Lato", sans-serif;
-  /* font-family: 'Ubuntu', sans-serif;
-  font-family: 'Bebas Neue', cursive; */
+  /* font-family: "Lato", sans-serif; */
+  font-family: "Ubuntu", sans-serif;
+  /* font-family: 'Bebas Neue', cursive; */
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-container {
+  width: 80vw;
+  height: auto;
+  background-color: lightyellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo {
+  width: 100%;
+}
+
+.todo-list {
+  width: 100%;
+}
+
+.todo-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.todo-header > * {
+  margin-top: 10px;
+  padding: 5px;
+  border: none;
+}
+
+.todo-header > *:focus {
+  outline: none;
+}
+
+.todo-list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul > li {
+  list-style: none;
+  /* list-style-type: none; */
+  padding: 5px;
+}
+
+.todo-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
