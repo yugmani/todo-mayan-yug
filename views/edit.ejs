@@ -26,9 +26,18 @@
         <ul class="todo-list">
           <% todoTasks.forEach(item=> {%> <% if(item._id == idTask){ %>
           <li class="todo-list-item">
-            <form action="/edit/<%= item._id %>" method="POST">
-              <input type="text" name="title" value="<%= item.title %>" />
-              <textarea rows="6" cols="45" name="content">
+            <form
+              action="/edit/<%= item._id %>"
+              method="POST"
+              class="edit-form"
+            >
+              <input
+                type="text"
+                name="title"
+                value="<%= item.title %>"
+                autofocus
+              />
+              <textarea rows="4" cols="30" name="content">
                 <%= item.content %>
                 </textarea
               >

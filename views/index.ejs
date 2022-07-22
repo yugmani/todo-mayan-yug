@@ -17,66 +17,47 @@
     ></script>
 
     <link rel="stylesheet" href="/style.css" />
+
     <!--no need to set ../public , because it is already set-->
   </head>
   <body>
-    <!-- <section class="todo-container">
-      <h1>To Do List</h1>
-      <section class="todo">
-        <form method="POST" action="/" class="todo-header">
-          <input type="text" name="title" value="title" placeholder="title" />
-          <textarea
-            rows="6"
-            cols="45"
-            name="content"
-            placeholder="content"
-          ></textarea>
-          <button type="submit">
-            <span class="fas fa-plus">Add Task</span>
-          </button>
-        </form>
-        <ul class="todo-list">
-          <% todoTasks.forEach(item=> {%>
-          <li class="todo-list-item">
-            <div class="todo-list-item-title"><%= item.title %></div>
-            <div class="todo-list-item-content"><%= item.content %></div>
-            <a href="/edit/<%= item._id%>" class="edit"
-              ><span class="fas fa-edit"></span
-            ></a>
-            <a href="/remove/<%= item._id%>" class="remove"
-              ><span class="fas fa-times"></span
-            ></a>
-          </li>
-          <% }) %>
-        </ul>
-      </section>
-    </section> -->
-
     <section class="todo-container">
-      <h2>To Do List</h2>
+      <h1>My Task Application</h1>
       <section class="todo">
-        <form action="/" method="POST" class="todo-header">
-          <input type="text" name="title" value="title" />
-          <textarea rows="6" cols="45" name="content">content</textarea>
-          <button type="submit">
-            <span class="fas fa-plus">Add Task</span>
-          </button>
-        </form>
-        <ul class="todo-list">
-          <% todoTasks.forEach(details => { %>
-          <li class="todo-list-item">
-            <div class="todo-list-item-title"><%= details.title %></div>
-            <div class="todo-list-item-content"><%= details.content %></div>
-            <a href="/edit/<%= details._id %>" class="edit">
-              <span class="fas fa-edit"></span>
-            </a>
-            <a href="/remove/<%= details._id %>" class="remove">
-              <span class="fas fa-times"></span>
-            </a>
-          </li>
-          <% }) %>
-        </ul>
+        <div class="new-task">
+          <h3>Add a new task</h3>
+          <form method="POST" action="/" class="todo-header">
+            <input type="text" name="title" placeholder="title" />
+            <textarea
+              rows="6"
+              cols="10"
+              name="content"
+              placeholder="content"
+            ></textarea>
+            <button type="submit">
+              <span class="fas fa-plus">Add Task</span>
+            </button>
+          </form>
+        </div>
+        <div class="task-list">
+          <h3>Task list</h3>
+          <ul class="todo-list">
+            <% todoTasks.forEach(item=> {%>
+            <li class="todo-list-item">
+              <div class="todo-list-item-title"><%= item.title %></div>
+              <div class="todo-list-item-content"><%= item.content %></div>
+              <a href="/edit/<%= item._id%>" class="edit"
+                ><span class="fas fa-edit"></span
+              ></a>
+              <a href="/remove/<%= item._id%>" class="remove"
+                ><span class="fas fa-times"></span
+              ></a>
+            </li>
+            <% }) %>
+          </ul>
+        </div>
       </section>
     </section>
+    <script src="index.js"></script>
   </body>
 </html>

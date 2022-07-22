@@ -1,7 +1,9 @@
 * {
-  /* font-family: "Lato", sans-serif; */
-  font-family: "Ubuntu", sans-serif;
-  /* font-family: 'Bebas Neue', cursive; */
+  font-family: "Lato", sans-serif;
+  /* font-family: "Ubuntu", sans-serif; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -10,24 +12,69 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #000;
 }
 
 .todo-container {
-  width: 80vw;
+  width: 800px;
   height: auto;
   background-color: lightyellow;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 15px;
+  box-shadow: 2px 3px 3px lightgray;
 }
 
 .todo {
   width: 100%;
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
 }
 
-.todo-list {
+h1 {
+  padding: 10px;
+  color: blue;
+  font-family: "Ubuntu", sans-serif;
+}
+
+h3 {
+  padding: 5px;
+  color: navy;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.new-task {
+  flex: 30%;
+  background-color: antiquewhite;
+  align-self: flex-start;
+  padding: 10px;
+}
+
+.todo-header input {
   width: 100%;
+  display: block;
+  border-radius: 5px;
+  font-weight: bolder;
+}
+
+textarea {
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+  font-weight: bolder;
+}
+
+.task-list {
+  flex: 60%;
+  background-color: aquamarine;
+  align-self: flex-start;
+  padding: 10px;
+  border-bottom-right-radius: 15px;
 }
 
 .todo-header {
@@ -41,26 +88,148 @@ body {
   margin-top: 10px;
   padding: 5px;
   border: none;
+  font-size: 18px;
 }
 
 .todo-header > *:focus {
   outline: none;
 }
 
-.todo-list-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.todo-header > button {
+  border-radius: 5px;
+  background-color: skyblue;
 }
 
-ul > li {
+.todo-header > button > span {
+  padding: 5px;
+}
+
+.todo-list {
   list-style: none;
-  /* list-style-type: none; */
   padding: 5px;
 }
 
 .todo-list-item {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px 0;
+}
+
+.todo-list-item-title {
+  flex: 18%;
+  font-weight: bold;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.todo-list-item-content {
+  flex: 58%;
+  font-family: "Lato", sans-serif;
+  font-weight: bolder;
+}
+
+.edit {
+  flex: 8%;
+  background: transparent;
+  padding: 5px;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.edit-form {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.edit-form > input {
+  font-family: sans-serif;
+  font-size: 18px;
+  width: 18%;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: blanchedalmond;
+}
+
+.edit-form > textarea {
+  font-family: sans-serif;
+  font-size: 15px;
+  text-align: left;
+  display: block;
+  width: 60%;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: blanchedalmond;
+}
+
+.edit-form > button {
+  font-family: sans-serif;
+  font-size: 15px;
+  /* flex: 5%; */
+  width: 8%;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: skyblue;
+}
+
+.edit-form > a {
+  font-family: sans-serif;
+  font-size: 15px;
+  width: 8%;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: hotpink;
+  text-align: center;
+  text-decoration: none;
+}
+
+.edit-form input:focus,
+.edit-form textarea:focus {
+  outline: none;
+}
+
+.edit-form button {
+  cursor: pointer;
+}
+
+.remove {
+  flex: 8%;
+  background: transparent;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.fa-edit {
+  /* align-self: center; */
+  padding: 5px;
+  background: white;
+  border-radius: 50%;
+  color: blue;
+}
+
+.fa-times {
+  padding: 5px;
+  background-color: red;
+
+  color: black;
+}
+
+.more-text {
+  color: blueviolet;
+}
+
+.more-text:hover {
+  cursor: pointer;
 }
